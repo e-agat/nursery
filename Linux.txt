@@ -1,0 +1,119 @@
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat pets.txt
+
+
+
+cat
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat>pack.txt
+
+
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+pack.txt  pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat pack.txt
+
+
+student@Ubuntu-MySQL-VirtualBox:~/GB$ nano pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ nanopack.txt
+nanopack.txt: команда не найдена
+student@Ubuntu-MySQL-VirtualBox:~/GB$ nano pack.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+pack.txt  pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat pets.txt pack.txt>humens_frends
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+humens_frends  pack.txt  pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat humens_friends
+cat: humens_friends: Нет такого файла или каталога
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat humens_frends
+dog
+cat
+hamster
+horse
+camel
+donkey
+
+student@Ubuntu-MySQL-VirtualBox:~/GB$ nano humens_frends
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+humans_friends  humens_frends  pack.txt  pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cat humans_friends
+dog
+cat
+hamster
+horse
+camel
+donkey
+
+student@Ubuntu-MySQL-VirtualBox:~/GB$ rm humens_frends
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+humans_friends  pack.txt  pets.txt
+
+student@Ubuntu-MySQL-VirtualBox:~/GB$ mkdir nursery
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+humans_friends  nursery  pack.txt  pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ 
+
+
+student@Ubuntu-MySQL-VirtualBox:~/GB$ mv humans_friends nursery
+student@Ubuntu-MySQL-VirtualBox:~/GB$ ls
+nursery  pack.txt  pets.txt
+student@Ubuntu-MySQL-VirtualBox:~/GB$ cd nursery
+student@Ubuntu-MySQL-VirtualBox:~/GB/nursery$ ls
+humans_friends
+student@Ubuntu-MySQL-VirtualBox:~/GB/nursery$ 
+
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ sudo apt-add-repository https://dev.mysql.com/downloads/repo/apt
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ sudo apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu xenial InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu xenial-updates InRelease                                                                                            
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu xenial-backports InRelease                                                                                                                            
+Сущ:4 http://security.ubuntu.com/ubuntu xenial-security InRelease                                                                                                                               
+Сущ:5 http://ppa.launchpad.net/linuxuprising/java/ubuntu xenial InRelease         
+Сущ:6 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease           
+Игн:7 https://dev.mysql.com/downloads/repo/apt xenial InRelease     
+Сущ:8 https://dbeaver.io/debs/dbeaver-ce  InRelease
+Ошб:9 https://dev.mysql.com/downloads/repo/apt xenial Release
+  404  Not Found
+Чтение списков пакетов… Готово
+E: Репозиторий «https://dev.mysql.com/downloads/repo/apt xenial Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ 
+
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ sudo apt install mysql-server
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Следующий пакет устанавливался автоматически и больше не требуется:
+  snapd-login-service
+Для его удаления используйте «sudo apt autoremove».
+Следующие НОВЫЕ пакеты будут установлены:
+  mysql-server
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 456 пакетов не обновлено.
+Необходимо скачать 10,8 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 111 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu xenial-updates/main amd64 mysql-server all 5.7.33-0ubuntu0.16.04.1 [10,8 kB]
+Получено 10,8 kB за 0с (41,5 kB/s)
+Выбор ранее не выбранного пакета mysql-server.
+(Чтение базы данных … на данный момент установлено 222153 файла и каталога.)
+Подготовка к распаковке …/mysql-server_5.7.33-0ubuntu0.16.04.1_all.deb …
+Распаковывается mysql-server (5.7.33-0ubuntu0.16.04.1) …
+Настраивается пакет mysql-server (5.7.33-0ubuntu0.16.04.1) …
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ 
+
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ sudo dpkg -r mysql-server
+[sudo] пароль для student: 
+(Чтение базы данных … на данный момент установлено 222156 файлов и каталогов.)
+Удаляется mysql-server (5.7.33-0ubuntu0.16.04.1) …
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ sudo apt download mysql-server
+Пол:1 http://ru.archive.ubuntu.com/ubuntu xenial-updates/main amd64 mysql-server all 5.7.33-0ubuntu0.16.04.1 [10,8 kB]
+Получено 10,8 kB за 0с (37,0 kB/s)
+W: Невозможно сбросить права для скачивания, так как файл «/etc/apt/mysql-server_5.7.33-0ubuntu0.16.04.1_all.deb» недоступен для пользователя «_apt». - pkgAcquire::Run (13: Отказано в доступе)
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ sudo dpkg -i mysql-server_5.7.33-0ubuntu0.16.04.1_all.deb
+Выбор ранее не выбранного пакета mysql-server.
+(Чтение базы данных … на данный момент установлено 222153 файла и каталога.)
+Подготовка к распаковке mysql-server_5.7.33-0ubuntu0.16.04.1_all.deb …
+Распаковывается mysql-server (5.7.33-0ubuntu0.16.04.1) …
+Настраивается пакет mysql-server (5.7.33-0ubuntu0.16.04.1) …
+student@Ubuntu-MySQL-VirtualBox:/etc/apt$ 
+
+
+
+
